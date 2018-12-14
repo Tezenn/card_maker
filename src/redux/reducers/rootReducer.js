@@ -9,6 +9,16 @@ const currentDeck = (state = defaultState.currentDeck, action) => {
   switch (action.type) {
     case 'ADD_NEW_DECK':
       return { ...state, ...action.deck };
+
+    case 'EDIT_CARD':
+      const index = Number(action.card.card_number);
+      return {
+        ...state,
+        cards: state.cards.map((el, i) =>
+          i === index ? (el = action.card) : el
+        )
+      };
+
     default:
       return state;
   }
