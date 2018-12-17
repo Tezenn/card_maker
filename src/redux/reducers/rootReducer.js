@@ -19,6 +19,17 @@ const currentDeck = (state = defaultState.currentDeck, action) => {
         )
       };
 
+    case 'EDIT_ALL_CARDS':
+      return {
+        ...state,
+        cards: state.cards.map(
+          el => (el = { ...el, options: { ...action.options } })
+        )
+      };
+
+    case 'ADD_CARD':
+      return { ...state, cards: [...state.cards, action.card] };
+
     default:
       return state;
   }

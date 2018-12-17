@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Lato';
 }
 
 a {
@@ -12,25 +15,22 @@ a {
 .deck {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
+  text-transform: uppercase;
 }
 
 .card_list_component {
   display: flex;
-  align-items: center;
+  width: 80%;
+  align-items: start;
   flex-direction: column;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .card_list {
   display: flex;
   flex-direction: row;
-  align-content: center;
   margin-top: 2em;
-  max-width: 80%;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-.card_list_item {
-  border: 0.3px solid black;
-  background-color: beige;
 }

@@ -1,9 +1,27 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-const Header = () => (
-  <div className="header">
-    <h1>React Card Maker</h1>
+const headerStyle = {
+  width: '100%',
+  height: '6em',
+  marginTop: '0px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: '#374a68',
+  color: 'white'
+};
+const Header = props => (
+  <div className="header" style={headerStyle}>
+    <h1
+      onClick={() => props.history.push('/')}
+      style={{
+        fontSize: '45px'
+      }}
+    >
+      CARD GAME MAKER
+    </h1>
   </div>
 );
 
-export default Header;
+export default withRouter(Header);

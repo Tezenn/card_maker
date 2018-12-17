@@ -6,7 +6,6 @@ class CardList extends Component {
   render() {
     return (
       <div className="card_list_component">
-        Here you can edit or add new cards, when done click display deck
         <div className="card_list">
           {this.props.deck.cards &&
             this.props.deck.cards.map(el => (
