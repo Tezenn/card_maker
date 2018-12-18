@@ -32,6 +32,7 @@ const btnStyle = {
   border: '0px',
   padding: '0.3em',
   color: 'white',
+  width: '3em',
   backgroundColor: '#374a68',
   textTransform: 'uppercase',
   cursor: 'pointer',
