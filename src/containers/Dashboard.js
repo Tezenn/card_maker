@@ -47,7 +47,6 @@ class Dashboard extends Component {
   fileInput = React.createRef();
 
   sendJson = () => {
-    console.log(this);
     if (this.fileInput.current.files[0]) {
       let x = this.fileInput.current.files[0];
       var reader = new FileReader();
@@ -56,8 +55,8 @@ class Dashboard extends Component {
         return e => {
           // Render thumbnail.
           const JsonObj = JSON.parse(e.target.result);
-          console.log(this.props);
           this.props.addImportedDeck(JsonObj);
+          alert('deck imported');
         };
       })(x);
 
