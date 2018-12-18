@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CardList from '../components/CardList';
-import { addCard } from '../redux/actions';
+import { addCard, addImportedDeck } from '../redux/actions';
 
 const btnStyle = {
   fontFamily: 'Lato',
   fontSize: '25px',
   border: '0px',
-  marginTop: '2em',
+  margin: '2em',
   padding: '0.3em',
   color: 'white',
   backgroundColor: '#374a68',
-  width: '45%',
+  width: '33%',
   textTransform: 'uppercase',
   cursor: 'pointer',
   height: '3em',
@@ -35,17 +35,48 @@ class Deck extends Component {
           deck={this.props.store.currentDeck}
           history={this.props.history}
         />
-        <button
-          style={btnStyle}
-          onClick={() => {
-            this.props.addCard({
-              ...this.newCard,
-              card_number: this.props.deckLength
-            });
-          }}
-        >
-          Add a new card
-        </button>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <button
+            style={btnStyle}
+            onClick={() => {
+              this.props.addCard({
+                ...this.newCard,
+                card_number: this.props.deckLength
+              });
+            }}
+          >
+            Add a new card
+          </button>
+          <button
+            style={btnStyle}
+            onClick={() => {
+              fetch('http://localhost:3100/makejson', {
+                method: 'POST',
+                headers: {
+                  'content-type': 'application/json'
+                },
+                body: JSON.stringify(this.props.store.currentDeck)
+              })
+                .then(response => response.json())
+                .then(res => {
+                  if (res.ok && res.ok === 'ok') {
+                    window.open('http://localhost:3100/download');
+                  }
+                });
+            }}
+          >
+            Export to json
+          </button>
+          <button
+            style={btnStyle}
+            onClick={() => {
+              this.props.addImportedDeck(this.props.store.currentDeck);
+              alert('saved');
+            }}
+          >
+            Save
+          </button>
+        </div>
       </div>
     );
   }
@@ -57,7 +88,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addCard: card => dispatch(addCard(card))
+  addCard: card => dispatch(addCard(card)),
+  addImportedDeck: deck => dispatch(addImportedDeck(deck))
 });
 
 export default connect(

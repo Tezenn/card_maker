@@ -9,7 +9,8 @@ const headerStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: '#374a68',
-  color: 'white'
+  color: 'white',
+  userSelect: 'none'
 };
 const Header = props => (
   <div className="header" style={headerStyle}>

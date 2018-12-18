@@ -10,7 +10,7 @@ const btnStyle = {
   padding: '0.3em',
   color: 'white',
   backgroundColor: '#374a68',
-  width: '45%',
+  width: '40%',
   textTransform: 'uppercase',
   cursor: 'pointer',
   height: '3em',
@@ -20,7 +20,8 @@ const btnStyle = {
 
 const inputStyle = {
   fontFamily: 'Lato',
-  width: '60%',
+  textTransform: 'uppercase',
+  width: '40%',
   fontSize: '20px',
   border: '0px',
   padding: '0.5em',

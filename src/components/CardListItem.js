@@ -30,24 +30,19 @@ class CardListItem extends Component {
           }, ${this.props.item.options.color2})`,
           color: `${this.props.item.options.textColor}`
         }}
-        onClick={
-          () => {
-            console.log('setting true!');
-            this.setState({ showSingleCard: true });
-          }
-          //this.props.history.push('/card/' + this.props.item.card_number)
-        }
+        onClick={() => {
+          this.setState({ showSingleCard: true });
+        }}
       >
         <h4># {this.props.item.card_number}</h4>
         <h2>{this.props.item.card_title}</h2>
-        <h4 style={{ padding: '0em 2em' }}>
+        <h4 style={{ padding: '0em 2em', marginTop: '4em' }}>
           {this.props.item.card_description}
         </h4>
         {this.state.showSingleCard && (
           <SingleCard
             item={this.props.item}
             onClose={() => {
-              console.log('***');
               this.setState({ showSingleCard: false });
             }}
           />
