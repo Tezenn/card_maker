@@ -50,7 +50,7 @@ class Deck extends Component {
           <button
             style={btnStyle}
             onClick={() => {
-              fetch('https://cardgamebackend.herokuapp.com/makejson', {
+              fetch('https://cardmakerbackend.herokuapp.com/makejson', {
                 method: 'POST',
                 headers: {
                   'content-type': 'application/json'
@@ -61,7 +61,7 @@ class Deck extends Component {
                 .then(res => {
                   if (res.ok && res.ok === 'ok') {
                     window.open(
-                      'https://cardgamebackend.herokuapp.com/download'
+                      'https://cardmakerbackend.herokuapp.com/download'
                     );
                   }
                 });
