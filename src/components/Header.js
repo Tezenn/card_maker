@@ -17,7 +17,8 @@ const Header = props => (
     <h1
       onClick={() => props.history.push('/')}
       style={{
-        fontSize: '45px'
+        fontSize: '45px',
+        cursor: 'pointer'
       }}
     >
       CARD GAME MAKER

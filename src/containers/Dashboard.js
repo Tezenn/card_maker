@@ -10,7 +10,7 @@ const btnStyle = {
   padding: '0.3em',
   color: 'white',
   backgroundColor: '#374a68',
-  width: '45%',
+  width: '30%',
   textTransform: 'uppercase',
   cursor: 'pointer',
   height: '3em',
@@ -84,7 +84,7 @@ class Dashboard extends Component {
           </button>
           <form
             style={{
-              width: '45%',
+              width: '30%',
               marginTop: '2.5em'
             }}
           >
