@@ -2,22 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 import { addCard, addImportedDeck } from '../redux/actions';
-
-const btnStyle = {
-  fontFamily: 'Lato',
-  fontSize: '25px',
-  border: '0px',
-  margin: '2em',
-  padding: '0.3em',
-  color: 'white',
-  backgroundColor: '#374a68',
-  width: '33%',
-  textTransform: 'uppercase',
-  cursor: 'pointer',
-  height: '3em',
-  borderRadius: '4px',
-  boxShadow: '10px 10px 32px -1px rgba(0,0,0,0.75)'
-};
+import { DeckStyle } from '../styles/style';
 
 class Deck extends Component {
   newCard = {
@@ -37,7 +22,7 @@ class Deck extends Component {
         />
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <button
-            style={btnStyle}
+            style={DeckStyle.btnStyle}
             onClick={() => {
               this.props.addCard({
                 ...this.newCard,
@@ -48,7 +33,7 @@ class Deck extends Component {
             Add a new card
           </button>
           <button
-            style={btnStyle}
+            style={DeckStyle.btnStyle}
             onClick={() => {
               fetch('http://localhost:3100/makejson', {
                 method: 'POST',
@@ -68,7 +53,7 @@ class Deck extends Component {
             Export to json
           </button>
           <button
-            style={btnStyle}
+            style={DeckStyle.btnStyle}
             onClick={() => {
               this.props.addImportedDeck(this.props.store.currentDeck);
               alert('saved');

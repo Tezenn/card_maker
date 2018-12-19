@@ -1,44 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addNewDeck } from '../redux/actions/index';
-
-const btnStyle = {
-  fontFamily: 'Lato',
-  fontSize: '25px',
-  border: '0px',
-  marginTop: '4em',
-  padding: '0.3em',
-  color: 'white',
-  backgroundColor: '#374a68',
-  width: '30%',
-  textTransform: 'uppercase',
-  cursor: 'pointer',
-  height: '3em',
-  borderRadius: '4px',
-  boxShadow: '3px 2px 10px 1px rgba(0, 0, 0, 0.75)'
-};
-
-const inputStyle = {
-  fontFamily: 'Lato',
-  textTransform: 'uppercase',
-  width: '30%',
-  fontSize: '20px',
-  border: '0px',
-  padding: '0.5em',
-  boxShadow: '3px 2px 10px 1px rgba(0, 0, 0, 0.75)',
-  borderRadius: '4px',
-  textAlign: 'center',
-  marginTop: '2em'
-};
-
-const labelStyle = {
-  fontFamily: 'Lato',
-  margin: '1em',
-  textAlign: 'center',
-  letterSpacing: '4px',
-  textTransform: 'uppercase',
-  fontSize: '30px'
-};
+import { NewDeckStyle } from '../styles/style';
 
 class NewDeck extends Component {
   state = {
@@ -80,24 +43,24 @@ class NewDeck extends Component {
           }}
           onSubmit={this.handleSubmit}
         >
-          <label style={labelStyle}>Name</label>
+          <label style={NewDeckStyle.labelStyle}>Name</label>
           <input
-            style={inputStyle}
+            style={NewDeckStyle.inputStyle}
             type="text"
             name="name"
             required="required"
             value={this.state.name}
             onChange={this.handleChange}
           />
-          <label style={labelStyle}>Number of Cards</label>
+          <label style={NewDeckStyle.labelStyle}>Number of Cards</label>
           <input
-            style={inputStyle}
+            style={NewDeckStyle.inputStyle}
             type="number"
             name="quantity"
             value={this.state.quantity}
             onChange={this.handleChange}
           />
-          <button style={btnStyle}>Create Deck</button>
+          <button style={NewDeckStyle.btnStyle}>Create Deck</button>
         </form>
       </div>
     );

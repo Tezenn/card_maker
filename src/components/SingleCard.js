@@ -2,84 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { editCard, editAllCards } from '../redux/actions/index';
-
-const cardStyle = {
-  fontFamily: 'Lato',
-  width: '550px',
-  height: '800px',
-  borderCollapse: 'collapse',
-  background: `linear-gradient(to top right, purple, yellow)`,
-  display: 'flex',
-  justifyContent: 'center',
-  border: '2.5px solid black',
-  borderRadius: '10px'
-};
-
-const optionStyle = {
-  marginLeft: '2em',
-  flexDirection: 'column',
-  fontFamily: 'Lato',
-  textAlign: 'center',
-  width: '500px',
-  height: '800px',
-  background: 'linear-gradient(to top right, white, grey)',
-  display: 'flex',
-  border: '2.5px solid black',
-  borderRadius: '10px'
-};
-
-const inputStyle = {
-  fontFamily: 'Lato',
-  width: '60%',
-  fontSize: '20px',
-  border: '0px',
-  padding: '0.5em',
-  boxShadow: '10px 10px 32px -1px rgba(0,0,0,0.75)',
-  borderRadius: '4px'
-};
-
-const labelStyle = {
-  fontFamily: 'Lato',
-  margin: '1em',
-  textAlign: 'center',
-  letterSpacing: '4px',
-  textTransform: 'uppercase',
-  fontSize: '30px'
-};
-const btnStyle = {
-  fontFamily: 'Lato',
-  fontSize: '25px',
-  border: '0px',
-  marginTop: '2em',
-  padding: '0.3em',
-  color: 'white',
-  backgroundColor: '#374a68',
-  width: '45%',
-  textTransform: 'uppercase',
-  cursor: 'pointer',
-  height: '3em',
-  borderRadius: '4px',
-  boxShadow: '10px 10px 32px -1px rgba(0,0,0,0.75)'
-};
-
-const colorInput = {
-  border: '0px',
-  width: '50%',
-  height: '2em'
-};
-
-const background = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100%',
-  backgroundColor: '#00000088',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  zIndex: 10000
-};
+import { SingleCardStyle } from '../styles/style';
 
 class SingleCard extends Component {
   constructor(props) {
@@ -135,7 +58,7 @@ class SingleCard extends Component {
   _renderSingleCard() {
     return (
       <div
-        style={background}
+        style={SingleCardStyle.background}
         onClick={e => {
           this.props.onClose();
           e.stopPropagation();
@@ -143,7 +66,7 @@ class SingleCard extends Component {
       >
         <div
           style={{
-            ...cardStyle,
+            ...SingleCardStyle.cardStyle,
             background: `linear-gradient(to top right, ${
               this.state.card.options.color1
             }, ${this.state.card.options.color2})`,
@@ -161,35 +84,41 @@ class SingleCard extends Component {
                 alignItems: 'center'
               }}
             >
-              <label style={labelStyle} htmlFor="card_title">
+              <label style={SingleCardStyle.labelStyle} htmlFor="card_title">
                 Card Title
               </label>
               <input
                 type="text"
-                style={inputStyle}
+                style={SingleCardStyle.inputStyle}
                 name="card_title"
                 id="card_title"
                 placeholder="title"
                 value={this.state.card.card_title}
                 onChange={this.handleChange}
               />
-              <label style={labelStyle} htmlFor="card_description">
+              <label
+                style={SingleCardStyle.labelStyle}
+                htmlFor="card_description"
+              >
                 Card Description
               </label>
               <textarea
                 type="text"
-                style={{ ...inputStyle, height: '15em' }}
+                style={{ ...SingleCardStyle.inputStyle, height: '15em' }}
                 name="card_description"
                 id="card_description"
                 placeholder="description"
                 value={this.state.card.card_description}
                 onChange={this.handleChange}
               />
-              <button style={btnStyle}>Save your card</button>
+              <button style={SingleCardStyle.btnStyle}>Save your card</button>
             </form>
           </div>
         </div>
-        <div style={optionStyle} onClick={e => e.stopPropagation()}>
+        <div
+          style={SingleCardStyle.optionStyle}
+          onClick={e => e.stopPropagation()}
+        >
           <h1>SYLE SETTINGS</h1>
           <form
             onSubmit={this.handleSubmit}
@@ -200,40 +129,40 @@ class SingleCard extends Component {
               textTransform: 'uppercase'
             }}
           >
-            <label style={labelStyle} htmlFor="color1">
+            <label style={SingleCardStyle.labelStyle} htmlFor="color1">
               Background Color 1
             </label>
             <input
-              style={colorInput}
+              style={SingleCardStyle.colorInput}
               type="color"
               name="color1"
               id="color1"
               value={this.state.card.options.color1}
               onChange={this.handleColor}
             />
-            <label style={labelStyle} htmlFor="color2">
+            <label style={SingleCardStyle.labelStyle} htmlFor="color2">
               Background Color 2
             </label>
             <input
-              style={colorInput}
+              style={SingleCardStyle.colorInput}
               type="color"
               name="color2"
               id="color2"
               value={this.state.card.options.color2}
               onChange={this.handleColor}
             />
-            <label style={labelStyle} htmlFor="textColor">
+            <label style={SingleCardStyle.labelStyle} htmlFor="textColor">
               Text Color
             </label>
             <input
-              style={colorInput}
+              style={SingleCardStyle.colorInput}
               type="color"
               name="textColor"
               id="textColor"
               value={this.state.card.options.textColor}
               onChange={this.handleColor}
             />
-            <button style={btnStyle}>Set this card</button>
+            <button style={SingleCardStyle.btnStyle}>Set this card</button>
             <button
               type="button"
               onClick={() => {
@@ -241,7 +170,7 @@ class SingleCard extends Component {
                 this.props.editAllCards(this.state.card.options);
                 this.props.onClose();
               }}
-              style={btnStyle}
+              style={SingleCardStyle.btnStyle}
             >
               Set all cards
             </button>

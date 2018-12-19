@@ -1,19 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { HeaderStyle } from '../styles/style';
 
-const headerStyle = {
-  width: '100%',
-  height: '6em',
-  marginTop: '0px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: '#374a68',
-  color: 'white',
-  userSelect: 'none'
-};
 const Header = props => (
-  <div className="header" style={headerStyle}>
+  <div className="header" style={HeaderStyle.headerStyle}>
     <h1
       onClick={() => props.history.push('/')}
       style={{

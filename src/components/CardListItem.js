@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
 import SingleCard from './SingleCard';
-
-const cardStyle = {
-  fontFamily: 'Lato',
-  borderCollapse: 'collapse',
-  overflowWrap: ' break-word',
-  width: '350px',
-  height: '500px',
-  background: 'linear-gradient(to top right, #383232, #e34040)',
-  display: 'flex',
-  flexDirection: 'column',
-  border: '2.5px solid black',
-  textTransform: 'uppercase',
-  borderRadius: '10px',
-  color: '#e7d6d6'
-};
+import { CardListItemStyle } from '../styles/style';
 
 class CardListItem extends Component {
   state = {
@@ -24,7 +10,7 @@ class CardListItem extends Component {
     return (
       <div
         style={{
-          ...cardStyle,
+          ...CardListItemStyle.cardStyle,
           background: `linear-gradient(to top right, ${
             this.props.item.options.color1
           }, ${this.props.item.options.color2})`,
